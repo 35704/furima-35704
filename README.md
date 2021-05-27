@@ -24,7 +24,7 @@
 |-----------------|------------|--------------------------------|
 | title           | string     | nill: false                    |
 | description     | text       | nill: false                    | 
-| category        | text       | nill: false                    |
+| category_id     | integer    | nill: false                    |
 | price           | integer    | nill: false                    |
 | condition       | text       | nill: false                    |
 | delivery_charge | integer    | nill: false                    |
