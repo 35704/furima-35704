@@ -20,13 +20,17 @@
 
 ## itemsテーブル
 
-| Column     | Type       | Options                        |
-|------------|------------|--------------------------------|
-| title      | string     | nill: false                    | 
-| category   | text       | nill: false                    |
-| price      | integer    | nill: false                    |
-| condition  | text       | nill: false                    |
-| user       | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| title           | string     | nill: false                    |
+| description     | text       | nill: false                    | 
+| category        | text       | nill: false                    |
+| price           | integer    | nill: false                    |
+| condition       | text       | nill: false                    |
+| delivery_charge | integer    | nill: false                    |
+| delivery_area   | text       | nill: false                    |
+| delivery_days   | text       | nill: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -37,9 +41,8 @@
 
 | Column     | Type       | Options                        |
 |------------|------------|--------------------------------|
-| purchase   | text       | nill: false                    |
 | user       | references | null: false, foreign_key: true |
-| item_id    | references | nill: false, foreign_key: true |
+| item       | references | nill: false, foreign_key: true |
 
 ### Association
 
@@ -51,15 +54,12 @@
 
 | Column          | Type       | Options                        |
 |-----------------|------------|--------------------------------|
-| postal_code     | integer    | nill: false                    |
-| prefectures     | text       | nill: false                    |
-| municipalities  | text       | nill: false                    |
-| address         | text       | nill: false                    |
-| building_name   | text       |                                |
-| phone_number    | integer    | nill: false                    |
-| delivery_charge | integer    | nill: false                    |
-| delivery_area   | text       | nill: false                    |
-| delivery_days   | text       | nill: false                    |
+| postal_code     | string     | nill: false                    |
+| prefectures_id  | integer    | nill: false                    |
+| municipalities  | string     | nill: false                    |
+| address         | string     | nill: false                    |
+| building_name   | string     |                                |
+| phone_number    | string     | nill: false                    |
 | purchase        | references | null: false, foreign_key: true |
 
 ### Association
