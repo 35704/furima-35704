@@ -2,19 +2,21 @@
 
 ## usersテーブル
 
-| Column     | Type   | Options     |
-|------------|--------|-------------|
-| nickname   | string | nill: false |
-| email      | string | nill: false |
-| password   | string | nill: false |
-| name       | string | nill: false |
-| birthday   | date   | nill: false |
+| Column             | Type   | Options                   |
+|--------------------|--------|---------------------------| 
+| nickname           | string | nill: false               |
+| email              | string | nill: false, unique: true |
+| encrypted_password | string | nill: false               |
+| first_name         | string | nill: false               |
+| first_name_kana    | string | nill: false               |
+| last_name          | string | nill: false               |
+| last_name_kana     | string | nill: false               |
+| birthday           | date   | nill: false               | 
 
 ### Association
 
 - has_many :items
 - has_many :purchases
-- has_one :addresses
 
 ## itemsテーブル
 
@@ -29,7 +31,6 @@
 
 - belongs_to :user
 - has_many :purchases
-- has_one :addresses
 
 ## purchasesテーブル
 
@@ -47,15 +48,14 @@
 
 ## addresses
 
-| Column     | Type       | Options                        |
-|------------|------------|--------------------------------|
-| address    | text       | nill: false                    |
-| user       | references | null: false, foreign_key: true |
-| item       | references | null: false, foreign_key: true |
-| purchase   | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| address         | text       | nill: false                    |
+| delivery_charge | integer    | nill: false                    |
+| delivery_area   | text       | nill: false                    |
+| delivery_days   | text       | nill: false                    |
+| purchase        | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :purchase
