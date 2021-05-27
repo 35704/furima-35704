@@ -1,24 +1,61 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column     | Type   | Options     |
+|------------|--------|-------------|
+| nickname   | string | nill: false |
+| email      | string | nill: false |
+| password   | string | nill: false |
+| name       | string | nill: false |
+| birthday   | date   | nill: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :purchases
+- has_one :addresses
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+| Column     | Type       | Options                        |
+|------------|------------|--------------------------------|
+| title      | string     | nill: false                    | 
+| category   | text       | nill: false                    |
+| price      | integer    | nill: false                    |
+| user       | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :purchases
+- has_one :addresses
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchasesテーブル
 
-* Deployment instructions
+| Column     | Type       | Options                        |
+|------------|------------|--------------------------------|
+| purchase   | text       | nill: false                    |
+| user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one :addresses
+
+## addresses
+
+| Column     | Type       | Options                        |
+|------------|------------|--------------------------------|
+| address    | text       | nill: false                    |
+| user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
+| purchase   | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- belongs_to :purchase
