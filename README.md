@@ -20,22 +20,22 @@
 
 ## itemsテーブル
 
-| Column          | Type       | Options                        |
-|-----------------|------------|--------------------------------|
-| title           | string     | nill: false                    |
-| description     | text       | nill: false                    | 
-| category_id     | integer    | nill: false                    |
-| price           | integer    | nill: false                    |
-| condition       | text       | nill: false                    |
-| delivery_charge | integer    | nill: false                    |
-| delivery_area   | text       | nill: false                    |
-| delivery_days   | text       | nill: false                    |
-| user            | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+|--------------------|------------|--------------------------------|
+| title              | string     | nill: false                    |
+| description        | text       | nill: false                    | 
+| category_id        | integer    | nill: false                    |
+| price              | integer    | nill: false                    |
+| condition_id       | integer    | nill: false                    |
+| delivery_charge_id | integer    | nill: false                    |
+| delivery_area_id   | integer    | nill: false                    |
+| delivery_days_id   | integer    | nill: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_one :purchases
+- has_one :purchase
 
 ## purchasesテーブル
 
@@ -48,19 +48,19 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addresses
 
-| Column          | Type       | Options                        |
-|-----------------|------------|--------------------------------|
-| postal_code     | string     | nill: false                    |
-| prefectures_id  | integer    | nill: false                    |
-| municipalities  | string     | nill: false                    |
-| address         | string     | nill: false                    |
-| building_name   | string     |                                |
-| phone_number    | string     | nill: false                    |
-| purchase        | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+|------------------|------------|--------------------------------|
+| postal_code      | string     | nill: false                    |
+| delivery_area_id | integer    | nill: false                    |
+| municipalities   | string     | nill: false                    |
+| address          | string     | nill: false                    |
+| building_name    | string     |                                |
+| phone_number     | string     | nill: false                    |
+| purchase         | references | null: false, foreign_key: true |
 
 ### Association
 
