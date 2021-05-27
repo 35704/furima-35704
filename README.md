@@ -25,12 +25,13 @@
 | title      | string     | nill: false                    | 
 | category   | text       | nill: false                    |
 | price      | integer    | nill: false                    |
+| condition  | text       | nill: false                    |
 | user       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- has_many :purchases
+- has_one :purchases
 
 ## purchasesテーブル
 
@@ -38,7 +39,7 @@
 |------------|------------|--------------------------------|
 | purchase   | text       | nill: false                    |
 | user       | references | null: false, foreign_key: true |
-| item       | references | null: false, foreign_key: true |
+| item_id    | references | nill: false, foreign_key: true |
 
 ### Association
 
@@ -50,7 +51,12 @@
 
 | Column          | Type       | Options                        |
 |-----------------|------------|--------------------------------|
+| postal_code     | integer    | nill: false                    |
+| prefectures     | text       | nill: false                    |
+| municipalities  | text       | nill: false                    |
 | address         | text       | nill: false                    |
+| building_name   | text       |                                |
+| phone_number    | integer    | nill: false                    |
 | delivery_charge | integer    | nill: false                    |
 | delivery_area   | text       | nill: false                    |
 | delivery_days   | text       | nill: false                    |
