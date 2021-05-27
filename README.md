@@ -29,7 +29,7 @@
 | condition_id       | integer    | nill: false                    |
 | delivery_charge_id | integer    | nill: false                    |
 | delivery_area_id   | integer    | nill: false                    |
-| delivery_days_id   | integer    | nill: false                    |
+| delivery_day_id    | integer    | nill: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
