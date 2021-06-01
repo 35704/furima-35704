@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :title
     validates :description
-    validates :price
+    validates :price, inclusion: { in: 300..9999999 }, format: { with: /\A[\d]+\z/ }
     validates :image
     with_options numericality: { other_than: 1 } do
       validates :category_id
