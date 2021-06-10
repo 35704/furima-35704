@@ -1,4 +1,5 @@
 class PurchaseAddress
+  attr_accessor :token
   include ActiveModel::Model
   attr_accessor :postal_code, :delivery_area_id, :municipalities, :address_number, :building_name, :phone_number, :user_id, :item_id
 
@@ -10,6 +11,7 @@ class PurchaseAddress
     validates :address_number
     validates :phone_number
     validates :delivery_area_id, numericality: { other_than: 1 }
+    validates :token
   end
 
   def save
