@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
   def index
     @purchase_address = PurchaseAddress.new
     @item = Item.find(params[:item_id])
-    unless current_user == @item.user && @item.purchase.present?
+    if current_user == @item.user 
       redirect_to root_path
     end
   end
