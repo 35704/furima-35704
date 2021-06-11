@@ -55,7 +55,7 @@ class ItemsController < ApplicationController
   end
 
   def page_transition
-    unless @item.user_id == current_user.id && !@item.purchase.present?
+    unless @item.user_id == current_user.id || !@item.purchase.present?
       redirect_to action: :index
     else
       render action: :edit, except: [:edit]
