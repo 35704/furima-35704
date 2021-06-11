@@ -39,10 +39,8 @@ class PurchasesController < ApplicationController
   end
 
   def page_transition
-    if current_user == @item.user 
-      redirect_to root_path and return 
-    elsif @item.purchase.present?
-      redirect_to root_path
+    if current_user == @item.user || @item.purchase.present? 
+      redirect_to root_path 
     end
   end
 
